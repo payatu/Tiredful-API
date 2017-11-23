@@ -1,6 +1,6 @@
 ### What is Tiredful API?
 
-Tiredful API is intentionally designed broken app. The aim of this web app is to teach developers, QA  or security professionals about flaws present in webservice (REST API) due to insecure coding practice.
+Tiredful API is intentionally designed broken app. The aim of this web app is to teach developers, QA  or security professionals about flaws present in webservices (REST API) due to insecure coding practice.
 
 ![Tiredful API image](./Tiredful-API.jpg)
 
