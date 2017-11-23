@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title-text %} {% endblock %}</title>
+
+    {# including css element #}
+    {% include 'elements/css-content.html' %}
+
+  </head>
+
+  <body>
+
+    {# including navbar element #}
+    {% include 'elements/navbar.html' %}
+
+    <div class="container-fluid" role="main">
+      <div class="row">
+        <div class="col-sm-2 col-md-2 sidebar">
+          {# including sidebar element #}
+          {% include 'elements/sidebar.html' %}
+        </div>
+        <div class="col-sm-8 col-sm-offset-2 col-md-9 col-md-offset-1 main">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div> <!-- /container -->
+    {# including javascript element #}
+    {% include 'elements/javascript-content.html' %}
+
+    {# For page specific javascript #}
+    {% block page-level-js %}
+    {% endblock %}
+  </body>
+</html>

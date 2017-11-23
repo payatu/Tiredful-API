@@ -1,0 +1,50 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+{% extends 'scenario-basic.html' %}
+
+{% block title-text %} Tiredful API: SQL Injection {% endblock %}
+
+{% block content %}
+  <h2>Challenge: SQL Injection</h2>
+  <p>
+    APIs implemented to serve a fitness tracker mobile app, is used to check fitness activity in a month.<br>
+    Following is the API end point to access monthly fitness activity<br>
+    <pre><b>POST</b> http://{{ request.get_host }}/api/v1/activities/</pre>
+    <br>
+    <b>POST:</b>
+    <pre>
+    {
+      &quot;month&quot;: &lt;month&#40;string&#41;&gt;
+    }
+    </pre>
+  </p>
+  <div class="row">
+    <div class="col-md-1"><b>User</b></div>
+    <div class="col-md-1"><b>Sleep</b></div>
+    <div class="col-md-1"><b>HeartBeat</b></div>
+    <div class="col-md-1"><b>Calories</b></div>
+    <div class="col-md-1"><b>Running</b></div>
+    <div class="col-md-1"><b>Month</b></div>
+  </div>
+  {% for data in tracker_details %}
+  <div class="row">
+    <div class="col-md-1">{{ data.user.username }}</div>
+    <div class="col-md-1">{{ data.sleep }}</div>
+    <div class="col-md-1">{{ data.heartbeat }}</div>
+    <div class="col-md-1">{{ data.calories }}</div>
+    <div class="col-md-1">{{ data.running }}</div>
+    <div class="col-md-1">{{ data.month }}</div>
+  </div>
+  {% endfor %}
+
+  <b> Aim:</b> Try to find table names of the database(SQLite).
+{% endblock %}

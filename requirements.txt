@@ -1,0 +1,6 @@
+Django==1.11.7
+django-oauth-toolkit==1.0.0
+djangorestframework==3.7.3
+oauth==1.0.1
+oauthlib==2.0.6
+python-oauth2==1.0.1

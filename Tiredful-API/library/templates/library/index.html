@@ -1,0 +1,39 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+{% extends 'scenario-basic.html' %}
+
+{% block title-text %} Tiredful API: Information Disclosure {% endblock %}
+
+{% block content %}
+  <h2>Challenge: Information Disclosure</h2>
+  <p>
+      A library decided to provide services to other third party through its APIs.
+      One of the implemented API is to get the details of the book by providing ISBN number.<br>
+      We suspect that the API is revealing interesting information apart from the book details<br>
+      Following is the API-end point for getting book details.<br><br>
+      <pre>
+        <b>GET method </b> http://{{ request.get_host }}/api/v1/books/&lt;ISBN&gt;/
+      </pre>
+      Following are the book ISBNs available:
+      {% if books %}
+      <ol>
+        {% for book in books %}
+          <li>{{ book.ISBN }}</li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+
+  </p>
+
+<b> Aim:</b> Try to get stacktrace information.
+
+{% endblock %}

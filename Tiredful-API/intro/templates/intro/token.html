@@ -1,0 +1,147 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+{% extends 'scenario-basic.html' %}
+
+{% block title-text %} Tiredful API: Scenarios {% endblock %}
+
+{% block content %}
+<div class="row">
+  <h2>Token Manager</h2>
+  <h3>Module for issuing authorisation token for user. </h3><br>
+  Some scenarios of the application requires user authentication.<br>
+  Following are the users registered with the application<br>
+  <ol>
+    <li>
+      <b>Username: </b> batman<br>
+      <b>Password: </b> Batman@123
+    </li>
+    <li>
+      <b>Username: </b> superman<br>
+      <b>Password: </b> Superman@123
+    </li>
+  </ol>
+  For sending authorized request use HTTP header authorization as follows:<br>
+  <div class="well col-md-4">Authorization : Bearer &lt; token_received &gt; </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <h2>Get User Token</h2>
+    <form method="POST" action="javascript:getToken()"  id="loginUserForm">
+      {{ login_form.as_p }}
+      <input type="submit" value="Get Token">
+    </form>
+    </div>
+  <!--User logout- revoke token -->
+  <div class="col-md-6 col-sm-6">
+    <h2>Revoke User Token</h2>
+    <form method="POST" action="javascript:revokeToken(2)"  id="logoutUserForm">
+      {{ logout_form.as_p }}
+      <input type="submit" value="Revoke Token">
+    </form>
+  </div>
+  <hr>
+</div>
+<hr>
+<div id="generatedToken" class ="alert" role="alert" >
+</div>
+
+
+{% endblock %}
+{% block page-level-js %}
+<script type="text/javascript">
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+  var operationDiv = document.getElementById("generatedToken");
+  function getToken() {
+        operationDiv.innerHTML= "";
+        var formDataJSON = $("#loginUserForm").serializeObject();
+        var formElements = [];
+        for (var p in formDataJSON)
+          formElements.push(encodeURIComponent(p) + "=" + encodeURIComponent(formDataJSON[p]));
+        str = formElements.join("&");
+        $.ajax({
+            type: "POST",
+            url: "/oauth/token/",
+            data: str,
+            success: function (data, textStatus, xhr) {
+                renderData(data,true);
+            },
+            error: function (data, textStatus, xhr) {
+                renderData(data["responseJSON"],false);
+            },
+            contentType: "application/x-www-form-urlencoded"
+        });
+  }
+
+function revokeToken() {
+    operationDiv.innerHTML= "";
+    var formDataJSON = $("#logoutUserForm").serializeObject();
+    var formElements = [];
+    for (var p in formDataJSON)
+      formElements.push(encodeURIComponent(p) + "=" + encodeURIComponent(formDataJSON[p]));
+    str = formElements.join("&");
+    $.ajax({
+        type: "POST",
+        url: "/oauth/revoke_token/",
+        data: str,
+        success: function (data, textStatus, xhr) {
+            operationDiv.appendChild(document.createTextNode("Sucessfully revoked"));   // Create textnode
+            operationDiv.classList.remove('alert-danger');
+            operationDiv.classList.add('alert-success');
+        },
+        error: function (data, textStatus, xhr) {
+            operationDiv.appendChild(document.createTextNode("Unable to revoke provided token"));   // Create textnode
+            operationDiv.classList.remove('alert-success');
+            operationDiv.classList.add('alert-danger');
+        },
+        contentType: "application/x-www-form-urlencoded"
+    });
+}
+
+
+function renderData(data,status)
+{
+  for (var key in data) {
+    if (data.hasOwnProperty(key)) {
+        response =  key + ":" + data[key];
+        var responseNode = document.createTextNode(response);     // Create a text node
+        operationDiv.appendChild(responseNode);
+        operationDiv.appendChild(document.createElement("br"));   // Create linebreak
+    }
+    if(status)
+    {
+      operationDiv.classList.remove('alert-danger');
+      operationDiv.classList.add('alert-success');
+    }
+    else
+    {
+      operationDiv.classList.remove('alert-success');
+      operationDiv.classList.add('alert-danger');
+    }
+  }
+}
+</script>
+{% endblock %}

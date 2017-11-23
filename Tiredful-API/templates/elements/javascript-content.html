@@ -1,0 +1,23 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ STATIC_URL }}/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="{{ STATIC_URL }}/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+	// get current URL path and assign 'active' class
+	var pathname = window.location.pathname;
+	$('.nav-sidebar  li a[href="'+ pathname + '"]').parent().addClass("active");
+	$('.navbar  li a[href="'+ pathname + '"]').parent().addClass("active");
+})
+</script>

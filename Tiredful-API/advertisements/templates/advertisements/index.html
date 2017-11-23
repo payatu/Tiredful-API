@@ -1,0 +1,41 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+{% extends 'scenario-basic.html' %}
+
+{% block title-text %} Tiredful API: Cross Site Scripting {% endblock %}
+
+{% block content %}
+  <h2>Challenge: Cross Site Scripting</h2>
+  <p>
+    An advertisement portal where user can post and see classified advts. <br>
+    APIs are implemented for accessing the list of classified advertisements and to create the advertisements.
+    Following are the API end points:<br>
+    1. List of advertisements (authentication required)
+    <pre>
+      <b>GET Method</b> http://{{ request.get_host }}/api/v1/advertisements/
+    </pre>
+    2. To create a advertisement (authentication required)
+    <pre>
+      <b>POST</b> http://{{ request.get_host }}/api/v1/advertisements/
+    </pre>
+    <b>POST</b>:
+    <pre>
+    {
+      &quot;headline&quot;&#58; &lt;headline&#40;string&#41;&gt;&#44;
+      &quot;info&quot;&#58; &lt;info&#40;string&#41;&gt;&#44;
+      &quot;price&quot;&#58;  &lt;price&#40;float&#40;7,2&#41;&#41;&gt;
+    }
+    </pre>
+  </p>
+<b> Aim:</b> Find parameters accepting cross site scripting meta-characters.
+
+{% endblock %}

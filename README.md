@@ -22,7 +22,7 @@ I tried to cover most of the vulnerabilities, I am sure that we have missed some
 * Cross Site Scripting.
 
 ### Can I contribute?
-Yes, you can help by sending us the details of vulnerabilities that we can implement in future versions of Tiredful API. Please mail us at info[at]payatu.com or siddharthb@payatu.com with subject "Tiredful API Scenario".
+Yes, you can help by sending us the details of vulnerabilities that we can implement in future versions of Tiredful API. Please mail us at info[at]payatu.com with subject "Tiredful API Scenario".
 
 ### Where can I get Tiredful API?
 Source can be downloaded from ![source](https://github.com/payatu/Tiredful-API).

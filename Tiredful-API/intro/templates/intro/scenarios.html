@@ -1,0 +1,71 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+{% extends 'scenario-basic.html' %}
+
+{% block title-text %} Tiredful API: Scenarios {% endblock %}
+
+{% block content %}
+<h2 class="page-header">Introduction</h2>
+
+<p>
+  TiredFul API is a web app intentionally developed to be insecure.
+  The purpose of the app to teach developers, QA  or security professionals about flaws present in webservice (REST API) due insecure coding practice.
+  Following are the scenarios implemented.
+  <ol>
+    <li>
+      <a href="http://{{ request.get_host }}/library/">Information Disclosure</a>
+    </li>
+    <li>
+      <a href="http://{{ request.get_host }}/exams/">Insecure Direct Object Reference</a>
+    </li>
+    <li>
+      <a href="http://{{ request.get_host }}/blog/">Access Control</a>
+    </li>
+    <li>
+      <a href="http://{{ request.get_host }}/trains/">Throttling</a>
+    </li>
+    <li>
+      <a href="http://{{ request.get_host }}/health/">SQL Injection</a>
+    </li>
+    <li>
+      <a href="http://{{ request.get_host }}/advertisements/">Cross Site Scripting</a>
+    </li>
+  </ol>
+</p>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      All the APIs are accessed over HTTP. All the requests to the APIs should have <code>ACCEPT</code> header.
+      <div class="well col-md-4">Accept: application/json </div>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      All the requests to the APIs using HTTP POST method should have <code>Content-Type</code> header.
+        <div class="well col-md-4">Content-Type: application/json </div>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      Some of the challenges require authentication under an account with appropriate access.
+      For accessing login protected data user needs to provide an access key.
+      Process to obtain the access key is provided in <b>User Token</b> section of the web application.
+    </p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+{% extends 'scenario-basic.html' %}
+
+{% block title-text %} Tiredful API: Access Control {% endblock %}
+
+{% block content %}
+  <h2>Challenge: Access Control</h2>
+  <p>
+    A blog application allows user to create,edit and view articles.<br>
+    Developer decided to implement web services, so for testing purpose developers provides access to two API end points <br>
+    1) Article Viewing -
+    <pre>
+    <b>GET method</b> http://{{ request.get_host }}/api/v1/articles/&lt;article-id&gt;/
+    </pre>
+    2) Article Approving (Admin only)-
+    <pre>
+    <b> GET method </b> http://{{ request.get_host }}/api/v1/approve-article/&lt;article-id&gt;/
+    </pre>
+
+    Following are available blogs
+    <div class="row">
+      <div class="col-md-1"><b>ID</b></div>
+      <div class="col-md-2"><b>Title</b></div>
+    </div>
+    {% for art in articles%}
+    <div class="row">
+      <div class="col-md-1">{{ art.id }}</div>
+      <div class="col-md-2">{{ art.title }}</div>
+    </div>
+    {% endfor %}
+  </p>
+  <b> Aim:</b> Try to execute operation which should be allowed only to admin users.
+{% endblock %}

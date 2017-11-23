@@ -1,0 +1,32 @@
+<!--
+
+   ____  __  ___   ___  ___  ___  _  _  __       __   ___  __
+  (_  _)(  )(  ,) (  _)(   \(  _)( )( )(  )     (  ) (  ,\(  )
+   )(   )(  )  \  ) _) ) ) )) _) )()(  )(__    /__\  ) _/ )(
+  (__) (__)(_)\_)(___)(___/(_)   \__/ (____)  (_)(_)(_)  (__)
+
+
+ Copyright (C) 2017-2018 Payatu Software Labs
+ This file is part of Tiredful API application -->
+
+{% extends 'scenario-basic.html' %}
+
+{% block title-text %} Tiredful API:Insecure Direct Object Reference {% endblock %}
+
+{% block content %}
+  <h2>Challenge: Insecure Direct Object Reference</h2>
+
+<p>
+  An online exam portal provides an API to access the result of attempt exams by a student.<br>
+  Login with &quot;batman&quot; and try to access exam result of other user.<br>
+  Following are the exam-id of test attempted by batman<br>
+  <ol>
+    <li>MQ==</li>
+    <li>Mg==</li>
+  </ol>
+  Following is the API end point used to access the result.(authentication required)<br><br>
+    <pre><b>GET method </b> http://{{ request.get_host }}/api/v1/exams/&lt;exam_id&gt;/</pre>
+</p>
+<b> Aim:</b> Try to access exam results of other user.
+
+{% endblock %}
