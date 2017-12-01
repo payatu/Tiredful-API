@@ -40,6 +40,14 @@ Please ping me if you are still not able to run development server.
 
 **Note:** It is recommended to use required libraries with the version specified in the requirements.txt. Please refer [this](https://pip.pypa.io/en/stable/user_guide/#requirements-files) more details
 
+#### Docker Container
+You can run Tiredful via [Docker](https://www.docker.com).  Simply execute:
+
+```
+docker build -t tiredful .
+docker run -p 8000:8000 --name tiredful -it tiredful
+```
+
 ### Feedback and Bug Reports.
 We would love to hear from you about your experience with Tiredful API. Please send us an email on info [at] payatu [dot] com or siddharth [dot] bezalwar [at] gmail [dot] com with Subject "Tiredful API Issue" based on what you want to share. Please include the below in your email.
 
