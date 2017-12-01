@@ -21,7 +21,7 @@ I tried to cover most of the vulnerabilities, I am sure that we have missed some
 * SQL Injection (SQLite)
 * Cross Site Scripting.
 
-![You can see solution here](https://payatu.com/tiredful-api-solution/)
+[You can see solution here](https://payatu.com/tiredful-api-solution/)
 
 ### Can I contribute?
 Yes, you can help by sending us the details of vulnerabilities that we can implement in future versions of Tiredful API. Please mail us at info[at]payatu.com with subject "Tiredful API Scenario".
