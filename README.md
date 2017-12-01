@@ -48,6 +48,8 @@ docker build -t tiredful .
 docker run -p 8000:8000 --name tiredful -it tiredful
 ```
 
+Browse to `http://localhost:8000/` and you are all set.  Use `CTRL-C` to shut down the server.
+
 ### Feedback and Bug Reports.
 We would love to hear from you about your experience with Tiredful API. Please send us an email on info [at] payatu [dot] com or siddharth [dot] bezalwar [at] gmail [dot] com with Subject "Tiredful API Issue" based on what you want to share. Please include the below in your email.
 
