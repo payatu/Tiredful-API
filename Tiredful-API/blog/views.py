@@ -85,5 +85,4 @@ def approve_article(request, article_id):
         article.save()
         return Response(json.dumps('{Message: Approved successfully}'))
     else:
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
