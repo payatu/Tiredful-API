@@ -70,8 +70,10 @@ Payatu is a boutique security testing company with specialization in:
 * Mobile Security
 * Cloud security
 * Web Security
-We also organize two International Security Conferences
 
-nullcon International Security Conference - http://nullcon.net
-hardwear.io Hardware Security Conference - http://hardwear.io
+We also organize two International Security Conferences:
+
+* nullcon International Security Conference - http://nullcon.net
+* hardwear.io Hardware Security Conference - http://hardwear.io
+
 **Website:** http://payatu.com **Email:** info (at) payatu dot com
