@@ -1,4 +1,4 @@
-Django==1.11.7
+Django==1.11.23
 django-oauth-toolkit==1.0.0
 djangorestframework==3.7.3
 oauth==1.0.1
