@@ -52,6 +52,9 @@ Browse to `http://localhost:8000/` and you are all set.  Use `CTRL-C` to shut do
 
 Added new JWT based scenarios. Updated repository available at [repo](https://github.com/siddharthbezalwar/Tiredful-API)
 
+#### Python3 Compatible Code
+[Tiredful API Python3](https://github.com/siddharthbezalwar/Tiredful-API-py3-beta)
+
 ### Feedback and Bug Reports.
 We would love to hear from you about your experience with Tiredful API. Please send us an email on info [at] payatu [dot] com or siddharth [dot] bezalwar [at] gmail [dot] com with Subject "Tiredful API Issue" based on what you want to share. Please include the below in your email.
 
